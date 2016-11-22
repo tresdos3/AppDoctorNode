@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body ng-controller="emergenciaCtrl">
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span> 
+	      </button>
+	      <a class="navbar-brand" href="#">App Doctor</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	        <li><a href="#/principal">Inicio</a></li>
+	        <li class="active"><a href="#/emergencia">Emergencias</a></li>
+	        <li><a href="#">Registros</a></li>
+	         <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{ username }} </a></li>
+	        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Cerrar Session</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	<div class="container">
+	    <div class="col-sm-4 col-xs-6" ng-repeat="datos in datosEstudiantes">
+      		<div class="panel panel-default">
+	          <div class="panel-thumbnail"><img src="img/User_manga.png" class="img-responsive"></div>
+	          <div class="panel-body">
+	            <p class="lead">Paciente:</p>
+	            <p>{{ datos.nombre }}</p>
+	            <p>{{ datos.Latitud }}</p>
+	            <p>{{ datos.Longitud }}</p>
+	            <p class="lead">Estado:</p>
+	           <p ng-if="datos.estado == 0">Sin Problemas</p><p ng-if="datos.estado == 1" ng-init="errorHtml(datos.nombre, datos.Latitud, datos.Longitud)" >Existen Problemas</p>
+	           <a href="#/mapas/1/2" title="">hey</a>
+	            <center><a href="" class="btn btn-primary" ng-click="cambiarValor(datos.$id)">Ver Direccion</a></center>
+	          </div>
+	        </div>
+      	</div><!--/col-->
+     
+<!-- 	    <pre ng-repeat="datos in datosEstudiantes">
+	          Id: {{datos.$id}}
+	          Nombre: {{ datos.nombre}} Estados: <h1 ng-if="datos.estado == 0 ">Sin Problemas</h1><h1 ng-if="datos.estado == 1 ">Existen Problemas</h1>
+
+	          Latitud: {{ datos.Latitud }} Longitud: {{ datos.Longitud }}
+	    </pre> -->
+	</div>
+	<button class="btn btn-danger" ng-click="errorHtml('Hellos')">Ehhsshrror Notification</button>
+	</body>
+</html>

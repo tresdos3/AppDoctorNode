@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Doctor App</title>
+</head>
+<body ng-controller="homeCtrl">
+	<div class="container">
+		<div class="jumbotron col-md-6 col-md-offset-3" style="padding-top: 0; padding-bottom: 0;">
+			<center><h2>Upds Campus Technology</h2></center>
+			<center><h2>Iniciar Session</h2></center>
+		</div>
+		<form role="form" name="LoginForm" novalidate="">
+			<div class="form-group col-md-6 col-md-offset-3" ng-class="{'has-error': LoginForm.email.$invalid && LoginForm.email.$touched}">
+				<label for="email">Email:</label>
+				<input type="email" class="form-control" ng-model="user.email" name="" value="" placeholder="Ingresa tu email :D!" required="">
+				<small class="help-block" ng-show="LoginForm.email.$invalid && LoginForm.email.$touched">Ingrese un correo electronico valido</small>
+			</div>
+			<div class="form-group col-md-6 col-md-offset-3" ng-class="{'has-error': LoginForm.password.$invalid && LoginForm.password.$touched}">
+				<label for="password">Password:</label>
+				<input type="password" class="form-control" ng-model="user.password" name="" value="" placeholder="Ingresa tu password :D!!" required="">
+				<small class="help-block" ng-show="LoginForm.password.$invalid && LoginForm.password.$touched">Su contracena no es valida</small>
+			</div>
+			<div class="form-group col-md-6 col-md-offset-3">
+				<button type="submit" ng-disabled="LoginForm.$invalid" class="btn btn-lg btn-primary btn-block" ng-click="IniciarSession()">Iniciar</button>
+				<p ng-show="errMsg" style="color: red;">{{MensajeError}}</p>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
